@@ -12,8 +12,11 @@ import Messages from 'components/Messages';
 import Logs from 'components/Logs';
 import Users from 'components/Users';
 
-const messageAudio = new Audio('/hiccup.mp3');
-const daucatmoiAudio = new Audio('/daucatmoi.mp3');
+const messageAudio = new Audio('/sounds/hiccup.mp3');
+const daucatmoiAudio = new Audio('/sounds/daucatmoi.mp3');
+const danhchetchamaygioAudio = new Audio('/sounds/danhchetchamaygio.mp3');
+const oidoioiAudio = new Audio('/sounds/oidoioi.mp3');
+const oibanoiAudio = new Audio('/sounds/oibanoi.mp3');
 
 class Room extends React.Component {
   constructor(props) {
@@ -127,6 +130,9 @@ class Room extends React.Component {
           ...messages,
         ]);
         if (message.message === 'daucatmoi') daucatmoiAudio.play();
+        else if (message.message === 'oibanoi') oibanoiAudio.play();
+        else if (message.message === 'oidoioi') oidoioiAudio.play();
+        else if (message.message === 'danhchetchamaygio') danhchetchamaygioAudio.play();
         else if (message.userId !== session.id) messageAudio.play();
       });
 
