@@ -1,0 +1,41 @@
+{
+  "workbench.colorTheme": "Darcula",
+  "yaml.schemas": {
+    "file:///Users/mac/.vscode/extensions/atlassian.atlascode-2.6.1/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "atlascode.jira.enabled": false,
+  "git.autofetch": true,
+  "editor.minimap.enabled": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.formatOnSave": true,
+  "typescript.format.enable": false,
+  "json.format.enable": false,
+  "javascript.format.enable": false,
+  "javascript.validate.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "tailwindCSS.includeLanguages": {},
+  "prettier.packageManager": "yarn",
+  "eslint.alwaysShowStatus": true,
+  "window.zoomLevel": 0,
+  "git.enableSmartCommit": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[twig]": {
+    "editor.defaultFormatter": "mblode.twig-language-2"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "eslint.format.enable": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "php.validate.executablePath": "/usr/local/bin/php",
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false
+}

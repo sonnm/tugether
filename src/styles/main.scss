@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+$font-family: 'Nunito', sans-serif;
+
+body {
+  @apply bg-gray-100 text-gray-800 text-sm;
+
+  // font: 100% $font-family;
+}
+
+button,
+input {
+  @apply focus:outline-none;
+}
+
+#header {
+  @apply py-4 bg-white mb-5;
+
+  .logo {
+  }
+}
+
+#content {
+  @apply mb-5;
+}
+
+#footer {
+  @apply text-center text-gray-400;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.search-results-wrapper {
+  @apply absolute right-0 top-full w-full;
+
+  .search-results {
+    @apply p-2 bg-white relative;
+
+    min-height: 100px;
+
+    & > div:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.playlists {
+  @apply flex flex-row items-center space-x-2;
+
+  .playlist-item {
+    @apply rounded-full px-4 py-2 flex flex-row items-center;
+
+    &.active {
+      @apply bg-blue-200 text-blue-800 rounded-full;
+    }
+  }
+}
+
+.videos {
+  .video {
+    .actions {
+      @apply transform transition-all opacity-0 pointer-events-none translate-y-1/2 duration-300 ease-in-out;
+    }
+
+    &:hover {
+      .actions {
+        @apply opacity-90 pointer-events-auto translate-y-0;
+      }
+    }
+  }
+}
+
+.messages {
+  @apply flex-grow mb-4 flex flex-col-reverse gap-2 overflow-y-auto;
+
+  .message {
+    @apply self-start;
+
+    max-width: 80%;
+
+    .meta {
+      @apply text-sm flex mb-1 gap-2 items-baseline;
+
+      .author {
+        @apply font-semibold;
+      }
+
+      .time {
+        @apply text-gray-400;
+      }
+    }
+
+    .content-wrapper {
+      @apply flex w-full justify-start;
+
+      .content {
+        @apply p-3 text-white bg-gray-400;
+      }
+    }
+
+    &.self {
+      @apply self-end;
+
+      .meta {
+        @apply flex-row-reverse;
+      }
+
+      .content-wrapper {
+        @apply justify-end;
+
+        .content {
+          @apply bg-blue-400;
+        }
+      }
+    }
+  }
+}
+
+.playing-next {
+  .item {
+    &:hover {
+      @apply bg-gray-100;
+    }
+
+    &.active {
+      @apply bg-blue-100 opacity-100;
+    }
+  }
+}
+
+.toggle-panel {
+  & > button {
+    @apply bg-white;
+  }
+
+  .panel {
+    @apply flex transform transition opacity-0 duration-300 pointer-events-none translate-y-10 shadow-md;
+  }
+
+  &.active {
+    & > button {
+      @apply text-white bg-blue-400;
+    }
+
+    .panel {
+      @apply opacity-100 pointer-events-auto translate-y-0;
+    }
+  }
+}
+
+.playlist {
+  .item {
+    @apply overflow-hidden;
+
+    .actions {
+      @apply opacity-0 translate-x-10 duration-300 pointer-events-none;
+    }
+
+    &:hover {
+      .actions {
+        @apply opacity-100 translate-x-0 pointer-events-auto;
+      }
+    }
+  }
+}
