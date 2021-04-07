@@ -1,5 +1,6 @@
 import React from 'react';
 import RoomContext from 'contexts/RoomContext';
+import { unescape } from 'lodash';
 
 class PlayingList extends React.PureComponent {
   render() {
@@ -28,7 +29,7 @@ class PlayingList extends React.PureComponent {
                       style={{ backgroundImage: `url(${video.thumbnail})` }}
                     ></div>
                     <div className="flex-grow min-w-0 text-xs">
-                      <div className="font-semibold truncate">{video.title}</div>
+                      <div className="font-semibold truncate">{unescape(video.title)}</div>
                       <div className="truncate">{video.channelTitle}</div>
                     </div>
                   </button>

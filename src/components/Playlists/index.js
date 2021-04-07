@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import Modal from 'components/Modal';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { defaultTo, find, isEmpty, shuffle } from 'lodash';
+import { defaultTo, find, isEmpty, shuffle, unescape } from 'lodash';
 import RoomContext from 'contexts/RoomContext';
 
 const PlaylistFormSchema = Yup.object().shape({
@@ -132,12 +132,12 @@ class Playlists extends React.Component {
             Add new playlist
           </button>
         </div>
-        <div className="flex flex-row flex-wrap gap-4 mb-4">
+        <div className="flex flex-wrap">
           {playlists.map((playlist) => (
             <button
               key={`playing-list-video-${playlist.id}`}
               type="button"
-              className={`bg-gray-100 px-5 py-2 rounded-full ${
+              className={`bg-gray-100 px-4 py-2 rounded-full mb-4 mr-4 ${
                 selectedPlaylist?.id === playlist.id && 'active bg-blue-100 text-blue-400'
               }`}
               onClick={() => {
@@ -150,7 +150,7 @@ class Playlists extends React.Component {
         </div>
         {selectedPlaylist && (
           <>
-            <div className="mb-2 flex flex-row justify-between z-0">
+            <div className="mb-2 flex flex-row justify-between z-0 items-center">
               <div className="flex flex-row items-center space-x-4">
                 {!isEmpty(selectedPlaylist.videos) && (
                   <button
@@ -181,8 +181,16 @@ class Playlists extends React.Component {
                 {Object.values(selectedPlaylist.videos).map((video) => (
                   <div
                     key={video.id}
-                    className="w-full flex flex-row gap-4 text-sm py-2 items-center text-left relative item"
+                    className="w-full flex flex-row space-x-4 text-sm py-2 items-center text-left relative item"
                   >
+                    <div
+                      className="w-16 h-16 bg-cover bg-center bg-no-repeat flex-shrink-0"
+                      style={{ backgroundImage: `url(${video.thumbnail})` }}
+                    ></div>
+                    <div className="flex-grow min-w-0">
+                      <div className="font-semibold truncate">{unescape(video.title)}</div>
+                      <div className="truncate">{video.channelTitle}</div>
+                    </div>
                     <div className="top-0 bottom-0 right-2 absolute flex flex-row transform transition actions items-center space-x-4">
                       <button
                         type="button"
@@ -228,14 +236,6 @@ class Playlists extends React.Component {
                           <line x1="14" y1="11" x2="14" y2="17"></line>
                         </svg>
                       </button>
-                    </div>
-                    <div
-                      className="w-16 h-16 bg-cover bg-center bg-no-repeat flex-shrink-0"
-                      style={{ backgroundImage: `url(${video.thumbnail})` }}
-                    ></div>
-                    <div className="flex-grow min-w-0">
-                      <div className="font-semibold truncate">{video.title}</div>
-                      <div className="truncate">{video.channelTitle}</div>
                     </div>
                   </div>
                 ))}

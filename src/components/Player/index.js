@@ -6,7 +6,7 @@ import ReactPlayer from 'react-player';
 import Slider from 'components/Slider';
 import firebase from 'firebase';
 import timeHelper from 'utils/timeHelper';
-import { debounce, findIndex, isEmpty } from 'lodash';
+import { debounce, findIndex, isEmpty, unescape } from 'lodash';
 import SessionSelector from 'slices/session/selector';
 import { connect } from 'react-redux';
 import screenfull from 'screenfull';
@@ -146,7 +146,7 @@ class Player extends React.Component {
 
     return (
       <div className="bg-white">
-        <div className="font-bold mb-2">{player.title}</div>
+        <div className="font-bold mb-2">{unescape(player.title)}</div>
         <ReactPlayer
           ref={this.playerRef}
           url={`https://www.youtube.com/watch?v=${player.videoId}`}

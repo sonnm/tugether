@@ -63,7 +63,7 @@ class Messages extends React.PureComponent {
                 this.setState({ input: e.target.value });
               }}
               value={input}
-              className="py-2 px-3 border w-full"
+              className="px-3 py-2 focus:outline-none bg-gray-100 w-full"
             />
           </form>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import RoomContext from 'contexts/RoomContext';
 import dayjs from 'dayjs';
+import { unescape } from 'lodash';
 
 class Logs extends React.PureComponent {
   render() {
@@ -34,7 +35,7 @@ class Logs extends React.PureComponent {
           <div className="overflow-y-auto space-y-4 playing-next text-sm">
             {logs.map((log) => (
               <div key={log.timestamp} className="flex flex-row justify-between">
-                <span className="mr-8 text-gray-700">{log.message}</span>
+                <span className="mr-8 text-gray-700">{unescape(log.message)}</span>
                 <span className="text-gray-400">{dayjs(log.timestamp).format('HH:mm')}</span>
               </div>
             ))}
