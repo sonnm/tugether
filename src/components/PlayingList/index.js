@@ -24,7 +24,7 @@ class PlayingList extends React.PureComponent {
                     }}
                   >
                     <div
-                      className="w-10 h-10 bg-cover bg-no-repeat flex-shrink-0"
+                      className="w-10 h-10 bg-cover bg-no-repeat flex-shrink-0 bg-center"
                       style={{ backgroundImage: `url(${video.thumbnail})` }}
                     ></div>
                     <div className="flex-grow min-w-0 text-xs">

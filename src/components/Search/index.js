@@ -77,6 +77,7 @@ const Search = ({ playlists, room }) => {
     const handleClick = (event) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
         setIsFocused(false);
+        setTerm('');
       }
     };
     document.addEventListener('mousedown', handleClick);

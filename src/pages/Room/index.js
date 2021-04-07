@@ -12,6 +12,8 @@ import Messages from 'components/Messages';
 import Logs from 'components/Logs';
 import Users from 'components/Users';
 
+const messageAudio = new Audio('/hiccup.mp3');
+
 class Room extends React.Component {
   constructor(props) {
     super(props);
@@ -122,6 +124,7 @@ class Room extends React.Component {
           },
           ...messages,
         ]);
+        messageAudio.play();
       });
 
     this.logsRef = firebase.database().ref(`/logs/${this.roomId}`);
