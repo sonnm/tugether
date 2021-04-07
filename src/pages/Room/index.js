@@ -129,11 +129,13 @@ class Room extends React.Component {
           },
           ...messages,
         ]);
-        if (message.message === 'daucatmoi') daucatmoiAudio.play();
-        else if (message.message === 'oibanoi') oibanoiAudio.play();
-        else if (message.message === 'oidoioi') oidoioiAudio.play();
-        else if (message.message === 'danhchetchamaygio') danhchetchamaygioAudio.play();
-        else if (message.userId !== session.id) messageAudio.play();
+        if (message.timestamp > Date.now() - 5000) {
+          if (message.message === 'daucatmoi') daucatmoiAudio.play();
+          else if (message.message === 'oibanoi') oibanoiAudio.play();
+          else if (message.message === 'oidoioi') oidoioiAudio.play();
+          else if (message.message === 'danhchetchamaygio') danhchetchamaygioAudio.play();
+          else if (message.userId !== session.id) messageAudio.play();
+        }
       });
 
     this.logsRef = firebase.database().ref(`/logs/${this.roomId}`);
@@ -192,6 +194,7 @@ class Room extends React.Component {
             {({ handleChange, handleBlur, handleSubmit }) => (
               <form onSubmit={handleSubmit}>
                 <input
+                  type="password"
                   className="px-4 py-3 focus:outline-none bg-white mr-3 w-64"
                   placeholder="Room Password"
                   name="roomPassword"
