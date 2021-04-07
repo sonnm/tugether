@@ -126,11 +126,8 @@ class Room extends React.Component {
           },
           ...messages,
         ]);
-
-        if (message.userId !== session.id) {
-          if (message.message === 'daucatmoi') daucatmoiAudio.play();
-          else messageAudio.play();
-        }
+        if (message.message === 'daucatmoi') daucatmoiAudio.play();
+        else if (message.userId !== session.id) messageAudio.play();
       });
 
     this.logsRef = firebase.database().ref(`/logs/${this.roomId}`);
