@@ -142,7 +142,7 @@ const Search = ({ playlists, room }) => {
             onChange={handleTermChange}
             onClick={() => setIsFocused(true)}
           />
-          {isFocused && (
+          {isFocused && term !== '' && (
             <button
               type="button"
               className="absolute top-2 right-2"
