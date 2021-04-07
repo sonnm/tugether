@@ -117,14 +117,15 @@ class Room extends React.Component {
       .startAt(Date.now() - 600000)
       .on('child_added', (snapshot) => {
         const { messages } = this.context;
+        const message = snapshot.val();
         setMessages([
           {
             key: snapshot.key,
-            ...snapshot.val(),
+            ...message,
           },
           ...messages,
         ]);
-        messageAudio.play();
+        if (message.userId !== session.id) messageAudio.play();
       });
 
     this.logsRef = firebase.database().ref(`/logs/${this.roomId}`);
