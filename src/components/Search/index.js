@@ -47,6 +47,8 @@ const Search = ({ playlists, room }) => {
   const handlePlay = async (video) => {
     roomContext.playVideo(video);
     setIsFocused(false);
+    setResults([]);
+    setTerm('');
   };
 
   const onAddToPlaylist = (item) => {
@@ -78,6 +80,7 @@ const Search = ({ playlists, room }) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
         setIsFocused(false);
         setTerm('');
+        setResults([]);
       }
     };
     document.addEventListener('mousedown', handleClick);
@@ -146,6 +149,7 @@ const Search = ({ playlists, room }) => {
               onClick={() => {
                 setTerm('');
                 setIsFocused(false);
+                setResults([]);
               }}
             >
               Close
