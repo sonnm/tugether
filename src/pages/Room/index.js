@@ -13,6 +13,7 @@ import Logs from 'components/Logs';
 import Users from 'components/Users';
 
 const messageAudio = new Audio('/hiccup.mp3');
+const daucatmoiAudio = new Audio('/daucatmoi.mp3');
 
 class Room extends React.Component {
   constructor(props) {
@@ -125,7 +126,8 @@ class Room extends React.Component {
           },
           ...messages,
         ]);
-        if (message.userId !== session.id) messageAudio.play();
+        if (message.message === 'daucatmoi') daucatmoiAudio.play();
+        else if (message.userId !== session.id) messageAudio.play();
       });
 
     this.logsRef = firebase.database().ref(`/logs/${this.roomId}`);
