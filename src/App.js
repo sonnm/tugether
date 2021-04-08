@@ -14,6 +14,8 @@ import SessionSelector from 'slices/session/selector';
 import { generateId } from 'slices/session';
 import { connect } from 'react-redux';
 import Search from 'pages/Search';
+import Privacy from 'pages/Privacy';
+import Tos from 'pages/Tos';
 import { RoomContextProvider } from 'contexts/RoomContext';
 
 class App extends React.Component {
@@ -38,6 +40,8 @@ class App extends React.Component {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/search" component={Search} />
                 <Route exact path="/room/:roomId" component={Room} />
+                <Route exact path="/privacy" component={Privacy} />
+                <Route exact path="/tos" component={Tos} />
                 <Route exact path="/404" component={PageNotFound} />
                 <Redirect from="*" to="/404" />
               </Switch>
