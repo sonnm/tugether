@@ -278,7 +278,7 @@ class Room extends React.Component {
               <div className="mb-6">
                 <Player />
               </div>
-              <div className="mb-6">
+              <div className="mb-4 md:mb-0">
                 <Playlists />
               </div>
             </div>
