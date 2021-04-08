@@ -48,7 +48,6 @@ class Playlists extends React.Component {
 
   onPlaylistFormSubmit = async (values) => {
     const { writeLog } = this.context;
-
     if (values.isNew) {
       const playlistRef = this.firebaseRef.push();
       const playlistId = playlistRef.key;
@@ -69,8 +68,10 @@ class Playlists extends React.Component {
       });
       writeLog(`updated playlist ${selectedPlaylist.name} to ${values.playlistName}`);
     }
-
     this.togglePlaylistFormModal();
+    setTimeout(() => {
+      this.formikRef.current.resetForm();
+    }, 200);
   };
 
   onRemove = (playlist) => {
