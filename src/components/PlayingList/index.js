@@ -8,7 +8,7 @@ class PlayingList extends React.PureComponent {
     if (!player) return null;
     return (
       <>
-        <div className="bg-white absolute bottom-full right-0 p-4 w-80 mb-4 h-96 flex-col z-40 panel">
+        <div className="bg-white absolute bottom-full right-0 p-4 w-80 mb-4 h-96 flex-col z-40 panel dark:bg-gray-900">
           <div className="mb-4 font-semibold">Playing List</div>
           <div className="overflow-y-auto playing-next">
             {player.playlist && (

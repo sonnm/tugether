@@ -195,7 +195,7 @@ class Room extends React.Component {
               <form onSubmit={handleSubmit}>
                 <input
                   type="password"
-                  className="px-4 py-3 focus:outline-none bg-white mr-3 w-64"
+                  className="px-4 py-3 focus:outline-none bg-white mr-3 w-64 dark:bg-gray-800"
                   placeholder="Room Password"
                   name="roomPassword"
                   autoComplete="off"
@@ -204,7 +204,7 @@ class Room extends React.Component {
                 />
                 <button
                   type="submit"
-                  className="px-4 py-3 focus:outline-none font-bold border bg-gray-200"
+                  className="px-4 py-3 focus:outline-none font-bold bg-gray-200 dark:bg-gray-800"
                 >
                   Submit
                 </button>
@@ -272,7 +272,7 @@ class Room extends React.Component {
               </button>
             </div>
           </div>
-          <div className="p-4 bg-white grid grid-cols-6 gap-6">
+          <div className="p-4 bg-white grid grid-cols-6 gap-6 dark:bg-gray-900">
             <div className="col-span-6 md:col-span-4">
               <Search room={room} playlists={playlists} />
               <div className="mb-6">

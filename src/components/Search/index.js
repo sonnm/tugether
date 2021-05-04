@@ -1,9 +1,11 @@
-import youtube, { API_KEY } from 'apis/youtube';
+import youtube from 'apis/youtube';
 import { debounce, unescape } from 'lodash';
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import firebase from 'firebase';
 import Modal from 'components/Modal';
 import RoomContext from 'contexts/RoomContext';
+
+const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 const Search = ({ playlists, room }) => {
   const [term, setTerm] = useState('');
@@ -136,7 +138,7 @@ const Search = ({ playlists, room }) => {
       <div className="search-video relative" ref={wrapperRef}>
         <div className="mb-6 relative">
           <input
-            className="focus:outline-none px-3 py-2 w-full bg-gray-100"
+            className="focus:outline-none px-3 py-2 w-full bg-gray-100 dark:bg-gray-800"
             placeholder="Video Search..."
             value={term}
             onChange={handleTermChange}
@@ -157,7 +159,7 @@ const Search = ({ playlists, room }) => {
           )}
         </div>
         {isFocused && (isLoading || results.length > 0) && (
-          <div className="search-results-wrapper z-30 shadow-lg bg-gray-700">
+          <div className="search-results-wrapper z-30 shadow-lg">
             <div className="search-results">
               {isLoading && (
                 <div className="absolute top-0 left-0 bottom-0 right-0 bg-white opacity-60 flex items-center justify-center">

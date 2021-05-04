@@ -145,8 +145,12 @@ class Player extends React.Component {
     if (!player) return null;
 
     return (
-      <div className="bg-white">
-        <div className="font-bold mb-2">{unescape(player.title)}</div>
+      <div className="bg-white dark:bg-gray-800">
+        <div className="font-bold p-2">
+          <a href={`https://youtu.be/${player.videoId}`} target="_blank" rel="noreferrer">
+            {unescape(player.title)}
+          </a>
+        </div>
         <ReactPlayer
           ref={this.playerRef}
           url={`https://www.youtube.com/watch?v=${player.videoId}`}

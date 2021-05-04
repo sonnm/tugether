@@ -36,7 +36,7 @@ class Messages extends React.PureComponent {
     const { session } = this.props;
     return (
       <>
-        <div className="bg-white absolute bottom-full right-0 p-4 w-80 mb-4 h-96 flex-col z-40 panel">
+        <div className="bg-white absolute bottom-full right-0 p-4 w-80 mb-4 h-96 flex-col z-40 panel dark:bg-gray-900">
           <div className="messages">
             {messages.map((item, index) => (
               <div
@@ -63,7 +63,7 @@ class Messages extends React.PureComponent {
                 this.setState({ input: e.target.value });
               }}
               value={input}
-              className="px-3 py-2 focus:outline-none bg-gray-100 w-full"
+              className="px-3 py-2 focus:outline-none bg-gray-100 w-full dark:bg-gray-800"
             />
           </form>
         </div>

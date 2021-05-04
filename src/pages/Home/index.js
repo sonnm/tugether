@@ -71,7 +71,7 @@ const Home = () => {
             {({ handleChange, handleBlur, handleSubmit, values }) => (
               <form onSubmit={handleSubmit}>
                 <input
-                  className="px-4 py-3 focus:outline-none bg-white mr-3 w-64"
+                  className="px-4 py-3 focus:outline-none bg-white mr-3 w-64 dark:bg-gray-800"
                   placeholder="Room ID"
                   value={values.roomId}
                   onChange={handleChange}
@@ -81,7 +81,7 @@ const Home = () => {
                 />
                 <button
                   type="submit"
-                  className="px-4 py-3 focus:outline-none font-bold border bg-gray-200"
+                  className="px-4 py-3 focus:outline-none font-bold bg-gray-200 dark:bg-gray-800"
                 >
                   Submit
                 </button>
@@ -99,31 +99,31 @@ const Home = () => {
           {({ handleChange, handleBlur, handleSubmit, touched, errors }) => (
             <form onSubmit={handleSubmit}>
               <div className="font-bold mb-4 border-b pb-2 text-lg">Create new room</div>
-              <div className="mb-1 text-sm">Room ID</div>
+              <div className="mb-1 text-sm">Room ID *</div>
               <div className="mb-5">
                 <input
-                  className="px-3 py-2 focus:outline-none bg-gray-100 w-full"
+                  className="px-3 py-2 focus:outline-none bg-gray-100 w-full dark:bg-gray-800"
                   value={roomId}
                   disabled
                 />
               </div>
-              <div className="mb-1 text-sm">Room Name</div>
+              <div className="mb-1 text-sm">Room Name *</div>
               <div className="mb-4">
                 <input
-                  className="px-3 py-2 focus:outline-none bg-gray-100 w-full mb-1"
+                  className="px-3 py-2 focus:outline-none bg-gray-100 w-full mb-1 dark:bg-gray-800"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   name="roomName"
                   autoComplete="off"
                 />
                 {errors.roomName && touched.roomName ? (
-                  <div className="text-sm text-red-400">{errors.roomName}</div>
+                  <div className="text-sm text-red-600">{errors.roomName}</div>
                 ) : null}
               </div>
               <div className="mb-1 text-sm">Room Password</div>
               <div className="mb-4">
                 <input
-                  className="px-3 py-2 focus:outline-none bg-gray-100 w-full"
+                  className="px-3 py-2 focus:outline-none bg-gray-100 w-full dark:bg-gray-800"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   name="roomPassword"

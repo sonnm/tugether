@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Home from 'pages/Home';
@@ -13,46 +13,48 @@ import './styles/main.scss';
 import SessionSelector from 'slices/session/selector';
 import { generateId } from 'slices/session';
 import { connect } from 'react-redux';
-import Search from 'pages/Search';
 import Privacy from 'pages/Privacy';
 import Tos from 'pages/Tos';
 import { RoomContextProvider } from 'contexts/RoomContext';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    firebase.initializeApp(config);
-    const { session, dispatch } = props;
-    if (!session.id) dispatch(generateId());
-  }
+firebase.initializeApp(config);
 
-  render() {
-    return (
-      <RoomContextProvider>
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <div
-            id="content"
-            className="w-full max-w-6xl mx-auto flex-grow flex flex-row items-stretch"
-          >
-            <div className="px-4 w-full">
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/search" component={Search} />
-                <Route exact path="/room/:roomId" component={Room} />
-                <Route exact path="/privacy" component={Privacy} />
-                <Route exact path="/tos" component={Tos} />
-                <Route exact path="/404" component={PageNotFound} />
-                <Redirect from="*" to="/404" />
-              </Switch>
-            </div>
+const App = (props) => {
+  const { session, dispatch } = props;
+
+  useEffect(() => {
+    if (!session.id) dispatch(generateId());
+  }, []);
+
+  useEffect(() => {
+    if (session.darkMode) document.documentElement.classList.add('dark');
+    else document.documentElement.classList.remove('dark');
+  }, [session.darkMode]);
+
+  return (
+    <RoomContextProvider>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <div
+          id="content"
+          className="w-full max-w-6xl mx-auto flex-grow flex flex-row items-stretch"
+        >
+          <div className="px-4 w-full">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/room/:roomId" component={Room} />
+              <Route exact path="/privacy" component={Privacy} />
+              <Route exact path="/tos" component={Tos} />
+              <Route exact path="/404" component={PageNotFound} />
+              <Redirect from="*" to="/404" />
+            </Switch>
           </div>
-          <Footer />
         </div>
-      </RoomContextProvider>
-    );
-  }
-}
+        <Footer />
+      </div>
+    </RoomContextProvider>
+  );
+};
 
 const mapStateToProps = (state) => ({
   session: SessionSelector.getSession(state),

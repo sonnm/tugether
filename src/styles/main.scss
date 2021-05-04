@@ -3,7 +3,7 @@
 $font-family: 'Nunito', sans-serif;
 
 body {
-  @apply bg-gray-100 text-gray-800 text-sm;
+  @apply bg-gray-100 text-gray-800 text-sm dark:bg-gray-1000 dark:text-gray-200;
 
   // font: 100% $font-family;
 }
@@ -14,7 +14,7 @@ input {
 }
 
 #header {
-  @apply py-4 bg-white mb-5;
+  @apply py-4 bg-white mb-5 dark:bg-gray-900;
 
   .logo {
   }
@@ -33,11 +33,18 @@ input {
   height: 24px;
 }
 
+.dark {
+  .border,
+  .border-b {
+    @apply border-gray-700;
+  }
+}
+
 .search-results-wrapper {
   @apply absolute right-0 top-full w-full;
 
   .search-results {
-    @apply p-2 bg-white relative;
+    @apply p-2 bg-white relative dark:bg-gray-900;
 
     min-height: 100px;
 
@@ -122,22 +129,22 @@ input {
 .playing-next {
   .item {
     &:hover {
-      @apply bg-gray-100;
+      @apply bg-gray-100 dark:bg-gray-700;
     }
 
     &.active {
-      @apply bg-blue-100 opacity-100;
+      @apply bg-blue-100 opacity-100 dark:bg-gray-800;
     }
   }
 }
 
 .toggle-panel {
   & > button {
-    @apply bg-white;
+    @apply bg-white dark:bg-gray-800;
   }
 
   .panel {
-    @apply flex transform transition opacity-0 duration-300 pointer-events-none translate-y-10 shadow-md;
+    @apply flex transform transition opacity-0 duration-300 pointer-events-none translate-y-10 shadow-lg;
   }
 
   &.active {

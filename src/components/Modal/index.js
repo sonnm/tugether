@@ -20,7 +20,7 @@ const Modal = ({ children, visible, close }) => (
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
           unmount={false}
-          className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+          className="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity"
           aria-hidden="true"
           onClick={close}
         ></Transition.Child>
@@ -32,9 +32,9 @@ const Modal = ({ children, visible, close }) => (
           leaveFrom="opacity-100 translate-y-0 sm:scale-100"
           leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           unmount={false}
-          className="sm:inline-block align-bottom bg-white text-left overflow-hidden shadow-xl transform transition-all max-w-lg w-full"
+          className="sm:inline-block align-bottom bg-white text-left overflow-hidden shadow-xl transform transition-all max-w-lg w-full "
         >
-          <div className="bg-white p-4">{children}</div>
+          <div className="bg-white p-4 dark:bg-gray-900">{children}</div>
         </Transition.Child>
       </div>
     </Transition>

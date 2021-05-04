@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const initialState = {
   id: null,
+  darkMode: false,
   displayName: null,
 };
 
@@ -21,10 +22,13 @@ const sessionSlice = createSlice({
     updateDisplayName: (state, action) => {
       state.displayName = action.payload;
     },
+    toggleDarkMode: (state) => {
+      state.darkMode = !state.darkMode;
+    },
   },
 });
 
-export const { reset, generateId, updateDisplayName } = sessionSlice.actions;
+export const { reset, generateId, updateDisplayName, toggleDarkMode } = sessionSlice.actions;
 
 export default persistReducer(
   {

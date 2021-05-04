@@ -138,7 +138,7 @@ class Playlists extends React.Component {
             <button
               key={`playing-list-video-${playlist.id}`}
               type="button"
-              className={`bg-gray-100 px-4 py-2 rounded-full mb-4 mr-4 ${
+              className={`bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-full mb-4 mr-4 ${
                 selectedPlaylist?.id === playlist.id && 'active bg-blue-100 text-blue-400'
               }`}
               onClick={() => {
@@ -178,7 +178,7 @@ class Playlists extends React.Component {
               </span>
             </div>
             {!isEmpty(selectedPlaylist.videos) && (
-              <div className="playlist divide-y">
+              <div className="playlist divide-y dark:divide-gray-800">
                 {Object.values(selectedPlaylist.videos).map((video) => (
                   <div
                     key={video.id}
@@ -195,7 +195,7 @@ class Playlists extends React.Component {
                     <div className="top-0 bottom-0 right-2 absolute flex flex-row transform transition actions items-center space-x-4">
                       <button
                         type="button"
-                        className="p-2 bg-white w-10 h-10 rounded-full border"
+                        className="p-2 bg-white w-10 h-10 rounded-full border dark:bg-gray-800"
                         onClick={() => {
                           playVideo(video);
                         }}
@@ -216,7 +216,7 @@ class Playlists extends React.Component {
                       </button>
                       <button
                         type="button"
-                        className="p-2 bg-white w-10 h-10 rounded-full border"
+                        className="p-2 bg-white w-10 h-10 rounded-full border dark:bg-gray-800"
                         onClick={() => {
                           this.onRemoveVideo(video.id, selectedPlaylist.id);
                         }}
@@ -267,7 +267,7 @@ class Playlists extends React.Component {
                 <div className="mb-1 text-sm">Name</div>
                 <div className="mb-4">
                   <input
-                    className="px-3 py-2 focus:outline-none bg-gray-100 w-full mb-1"
+                    className="px-3 py-2 focus:outline-none bg-gray-100 w-full mb-1 dark:bg-gray-800"
                     placeholder="Enter Playlist Name"
                     onChange={handleChange}
                     onBlur={handleBlur}
