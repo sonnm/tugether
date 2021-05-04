@@ -162,7 +162,7 @@ const Search = ({ playlists, room }) => {
           <div className="search-results-wrapper z-30 shadow-lg">
             <div className="search-results">
               {isLoading && (
-                <div className="absolute top-0 left-0 bottom-0 right-0 bg-white opacity-60 flex items-center justify-center">
+                <div className="absolute top-0 left-0 bottom-0 right-0 bg-gray-800 opacity-75 flex items-center justify-center">
                   <div>Loading...</div>
                 </div>
               )}
