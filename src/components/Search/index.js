@@ -100,7 +100,7 @@ const Search = ({ playlists, room }) => {
         }}
       >
         <div className="font-bold mb-2 border-b pb-2 text-lg">Add to playlist</div>
-        <div className="divide-y divide-gray-100">
+        <div className="divide-y divide-gray-100 dark:divide-gray-800">
           {playlists.map((playlist) => (
             <div
               key={playlist.id}
