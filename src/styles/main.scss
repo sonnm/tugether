@@ -8,6 +8,10 @@ body {
   // font: 100% $font-family;
 }
 
+input {
+  -webkit-appearance: none;
+}
+
 button,
 input {
   @apply focus:outline-none;
